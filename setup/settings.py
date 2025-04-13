@@ -125,9 +125,11 @@ AWS_ACCESS_KEY_ID = 'AKIASDQQJXDAMQAXAT5R'
 
 AWS_SECRET_ACCESS_KEY = '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'
 
-AWS_STORAGE_BUCKET_NAME = 'lf-alura-space '
+AWS_STORAGE_BUCKET_NAME = 'lf-alura-space'
 
 AWS_SS3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+AWS_S3_FILE_OVERWRITE = False
 
 AWS_DEFAULT_ACL = 'public-read'
 
@@ -149,11 +151,10 @@ AWS_HEADERS = {
 STORAGES = {
     "default": {
         "BACKEND": "storages.backends.s3.S3Storage",
-        "OPTIONS": {
-          
-        },
     },
-    "staticfiles":"storages.backends.s3.S3Storage"
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+    },
 }
 
 STATIC_URL = f'https://{AWS_SS3_CUSTOM_DOMAIN}/static/'
